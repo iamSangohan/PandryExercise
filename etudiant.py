@@ -123,45 +123,77 @@ class ListeChainee:
         return nouvelle_liste
 
 
-liste = ListeChainee()
+def afficherOption(liste):
+    print("Vous etes sur la liste suivant :")
+    print(liste.afficher()) 
+    print("Tapez 1 pour ajouter")
+    print("Tapez 2 pour inserer")
+    print("Tapez 3 pour inverser")
+    print("Tapez 4 pour supprimer un element")
+    print("Tapez 5 pour obtenir la promotion finale")
+    
+def option1():
+    nom = input("Saisissez le nom de votre etudiant :\n")
+    prenom = input("Saisissez le prenom de votre etudiant :\n")
+    id = input("Saisissez l'id de votre etudiant :\n")
+    moy = input("Saisissez la moyenne de votre etudiant :\n")
+    etudiant = Etudiant(nom=nom, prenom=prenom, numero_carte=id, moyenne=moy)
+    return etudiant
 
-# Ajout d'un étudiant à la liste
-etudiant1 = Etudiant("A", "1", 1, 16)
-liste.ajout(etudiant1)
+def option2():
+    print("Cette option va enregistrer l'etudiant a une position pour etre dans l'ordre")
+    nom = input("Saisissez le nom de votre etudiant :\n")
+    prenom = input("Saisissez le prenom de votre etudiant :\n")
+    id = input("Saisissez l'id de votre etudiant :\n")
+    moy = input("Saisissez la moyenne de votre etudiant :\n")
+    etudiant = Etudiant(nom=nom, prenom=prenom, numero_carte=id, moyenne=moy)
+    return etudiant
 
-# Ajout d'un autre étudiant à la liste
-etudiant2 = Etudiant("B", "2", 2, 12)
-liste.ajout(etudiant2)
+def option3(liste):
+    print("La liste sera inversé")
+    liste.inverser()
+    liste.afficher()
+    
+def option4(liste):
+    liste.afficher
+    result = input("Saisissez l'id de l'etudiant a supprimer")
+    return result
 
-# Ajout d'un autre étudiant à la liste
-etudiant3 = Etudiant("Luc", "G", 3, 11)
-liste.ajout(etudiant3)
+def option5(liste):
+    print("La liste a été mise a jour. Voici la nouvelle liste avec que les admis")
+    liste.afficher()    
+    
 
-# Ajout d'un autre étudiant à la liste
-etudiant4 = Etudiant("Boris", "T", 4, 13)
-liste.ajout(etudiant4)
-
-print("Liste initial : ")
-liste.afficher()
-
-
-
-# Inversion de la liste
-liste.inverser()
-
-# Affichage de la liste après inversion
-print("\nAprès inversion:")
-liste.afficher()
-
-# Suppression d'un étudiant de la liste
-liste.supprimer(1)
-
-# Affichage de la liste après suppression
-print("\nAprès suppression:")
-liste.afficher()
-
-
-
-print("\nAprès admission:")
-liste.PromoFinale()
-liste.afficher()
+def main():
+    continuer = True
+    liste = ListeChainee()
+    while continuer == True:
+        print("---------------------------")
+        afficherOption(liste)
+        option = input("Je choisis l'option :")
+        if option == "1" :
+            result = option1()
+            liste.ajout(result)
+        elif option == "2" :
+            result = option2()
+            liste.inserer(result)
+        elif option == "3" :
+            option3()
+        elif option == "4" :
+            result = option4()
+            liste.supprimer(result)
+        elif option == "5" :
+            liste.PromoFinale()
+            option5(liste)
+        
+        response = input("Voulez vous continuer ? (y/n)")
+        while response != "y" and response != "n" :
+            print("Reponse incorrecte")
+            response = input("Voulez vous continuer ? (y/n)")
+        if response == "y" :
+            continuer = True
+        elif response == "n" :
+            continuer = False
+    print("Activité terminée !!!")
+    
+main()
