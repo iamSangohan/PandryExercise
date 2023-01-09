@@ -142,21 +142,21 @@ def option1():
 
 def option2():
     print("Cette option va enregistrer l'etudiant a une position pour etre dans l'ordre")
-    nom = input("Saisissez le nom de votre etudiant :\n")
-    prenom = input("Saisissez le prenom de votre etudiant :\n")
-    id = input("Saisissez l'id de votre etudiant :\n")
-    moy = input("Saisissez la moyenne de votre etudiant :\n")
+    nom = input("Saisissez le nom de votre etudiant : ")
+    prenom = input("Saisissez le prenom de votre etudiant :")
+    id = input("Saisissez l'id de votre etudiant : ")
+    moy = input("Saisissez la moyenne de votre etudiant : ")
     etudiant = Etudiant(nom=nom, prenom=prenom, numero_carte=id, moyenne=moy)
     return etudiant
 
 def option3(liste):
-    print("La liste sera inversé")
+    print("La liste a été inversée")
     liste.inverser()
     liste.afficher()
     
 def option4(liste):
     liste.afficher
-    result = input("Saisissez l'id de l'etudiant a supprimer")
+    result = input("Saisissez l'id de l'etudiant a supprimer : ")
     return result
 
 def option5(liste):
@@ -170,7 +170,7 @@ def main():
     while continuer == True:
         print("---------------------------")
         afficherOption(liste)
-        option = input("Je choisis l'option :")
+        option = input("Je choisis l'option : ")
         if option == "1" :
             result = option1()
             liste.ajout(result)
@@ -178,7 +178,7 @@ def main():
             result = option2()
             liste.inserer(result)
         elif option == "3" :
-            option3()
+            option3(liste)
         elif option == "4" :
             result = option4()
             liste.supprimer(result)
@@ -186,10 +186,10 @@ def main():
             liste.PromoFinale()
             option5(liste)
         
-        response = input("Voulez vous continuer ? (y/n)")
+        response = input("Voulez vous continuer ? (y/n) :")
         while response != "y" and response != "n" :
             print("Reponse incorrecte")
-            response = input("Voulez vous continuer ? (y/n)")
+            response = input("Voulez vous continuer ? (y/n) :")
         if response == "y" :
             continuer = True
         elif response == "n" :
