@@ -1,7 +1,7 @@
 from random import randrange as rand
 import pygame, sys
 
-# The configuration
+
 config = {
 	'cell_size':	20,
 	'cols':		8,
@@ -21,7 +21,7 @@ colors = [
 (0,   220, 220)
 ]
 
-# Define the shapes of the single parts
+
 tetris_shapes = [
 	[[1, 1, 1],
 	 [0, 1, 0]],
